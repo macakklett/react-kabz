@@ -1,19 +1,16 @@
 import s from './Profile.module.css'
 import topImg from './screen-mockups.svg';
-import foto from './image-jennie.jpg';
 import MyPosts from './MyPosts/MyPosts';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-const Profile = () => {
+const Profile = (props) => {
     return(
         <div className={s.content}>
-        <div><img src={topImg} alt='imag-top' className={s.top} /></div>
         <div>
-          <img src={foto} alt='photographia' />
-          <div>
-            ava + description
-          </div>
-          <MyPosts />
+          <img src={topImg} alt='imag-top' className={s.top} />
         </div>
+          <ProfileInfo />
+          <MyPosts posts={props.posts}/>
       </div>
     );
 }

@@ -1,20 +1,20 @@
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
-const MyPosts = () => {
+const MyPosts = ({ posts }) => {
+
+  let postElements = posts.map(post => <Post message={post.message} likesCount={post.likesCount} />)
+
     return (
-        <div>
-            My posts
+        <div className={s.postsBlock}>
+            <h3>My posts</h3>
             <div>
               <div>
-                <textarea></textarea>
-                <button>Add Post</button>
+                <div><textarea></textarea></div>
+                <div><button>Add Post</button></div>
               </div>
               <div className={s.posts}>
-                <Post message='Hello, how are you' colLikes={3}/>
-                <Post message='Very good' colLikes={6}/>
-                <Post message='not know about it' colLikes={4}/>
-                <Post message='it`s cool' colLikes={9}/>
+                {postElements}
               </div>
             </div>
           </div>
