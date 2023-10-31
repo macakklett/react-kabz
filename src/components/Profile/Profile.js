@@ -1,6 +1,6 @@
 import s from './Profile.module.css'
 import topImg from './screen-mockups.svg';
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
@@ -10,7 +10,7 @@ const Profile = (props) => {
           <img src={topImg} alt='imag-top' className={s.top} />
         </div>
           <ProfileInfo />
-          <MyPosts posts={props.posts}/>
+          <MyPostsContainer store={props.store} />
       </div>
     );
 }

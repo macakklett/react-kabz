@@ -1,10 +1,16 @@
 .nav {
     grid-area: nav;
     background-color: gray;
+    padding: 10px;
 }
 
 .item {
     color: white;
+}
+
+.navLink:last-child {
+    margin-top: 30px;
+    font-size: 20px;
 }
 
 .active {
