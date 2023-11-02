@@ -3,15 +3,18 @@ import ReactDOM from "react-dom/client";
 import store from "./redux/redux-store";
 import "./index.css";
 import App from "./App";
+import { Provider } from "./StoreContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const rerenderIntaireTree = (state) => {
-    root.render(<App  store={store}/>);
+const rerenderIntaireTree = () => {
+    root.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    );
 }
 
-rerenderIntaireTree(store.getState());
-store.subscribe( () => {
-    let state = store.getState();
-    rerenderIntaireTree(state);
-});
+rerenderIntaireTree();
+store.subscribe(() => rerenderIntaireTree());
+/* store={store}/ */
