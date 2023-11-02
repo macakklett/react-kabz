@@ -4,16 +4,24 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import StoreContext from "./StoreContext";
+
+const NavbarContainer = {
+  navBar: [
+    { id: 1, navBarLink: "Messages" },
+    { id: 2, navBarLink: "Profile" },
+    { id: 3, navBarLink: "News" },
+    { id: 4, navBarLink: "Music" },
+    { id: 5, navBarLink: "Settings" },
+    { id: 6, navBarLink: "Friends" }
+  ]
+}
 
 function App() {
   return (
     <BrowserRouter>
       <div className="site-wrapper">
         <Header />
-        <StoreContext.Consumer>
-          {(store) => (<Navbar navBar={store.getState().navBar.navLinks}/>)}
-        </StoreContext.Consumer>
+          <Navbar navBar={NavbarContainer.navBar}/>
         <div className="site-wrapper-content">
           <Routes>
             <Route path="/profile" element={<Profile />} />
