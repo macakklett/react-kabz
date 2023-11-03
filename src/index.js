@@ -7,13 +7,8 @@ import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const rerenderIntaireTree = () => {
-    root.render(
+root.render(
     <Provider store={store}>
         <App />
     </Provider>
-    );
-}
-
-rerenderIntaireTree();
-store.subscribe(() => rerenderIntaireTree());
+);
