@@ -4,15 +4,17 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const NavbarContainer = {
   navBar: [
     { id: 1, navBarLink: "Messages" },
     { id: 2, navBarLink: "Profile" },
-    { id: 3, navBarLink: "News" },
-    { id: 4, navBarLink: "Music" },
-    { id: 5, navBarLink: "Settings" },
-    { id: 6, navBarLink: "Friends" }
+    { id: 3, navBarLink: "Users" },
+    { id: 4, navBarLink: "News" },
+    { id: 5, navBarLink: "Music" },
+    { id: 6, navBarLink: "Settings" },
+    { id: 7, navBarLink: "Friends" }
   ]
 }
 
@@ -26,6 +28,7 @@ function App() {
           <Routes>
             <Route path="/profile" element={<Profile />} />
             <Route path="/messages/*" element={<DialogsContainer />} />
+            <Route path="/users/*" element={<UsersContainer />} />
           </Routes>
         </div>
       </div>
