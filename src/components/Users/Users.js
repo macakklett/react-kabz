@@ -1,17 +1,24 @@
 import React from 'react';
 import styles from './Users.module.css';
 import userAva from './image-emily.jpg';
+import axios from 'axios';
 
 const Users = (props) => {
     // debugger;
     if(props.users.length === 0){
-        props.setUsers([
-                { id: 1, followed: true, fullName: 'Vasiliy', status: "Hello, how are you", location: {country: 'Ukraine', city: 'Nk'} },
-                { id: 2, followed: false, fullName: 'Ignat', status: "Hello, i`m speaker of fly powers", location: {country: 'Ukraine', city: 'Zp'} },
-                { id: 3, followed: true, fullName: 'Sveta', status: "Hello, i studied at the technicum", location: {country: 'Ukraine', city: 'Dp'} },
-                { id: 4, followed: false, fullName: 'Nadya', status: "Hello, i`m very smart", location: {country: 'Ukraine', city: 'Kv'} }
-            ]
-        )
+
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            // debugger;
+            props.setUsers(response.data.items);
+        });
+
+        // props.setUsers([
+        //         { id: 1, followed: true, fullName: 'Vasiliy', status: "Hello, how are you", location: {country: 'Ukraine', city: 'Nk'} },
+        //         { id: 2, followed: false, fullName: 'Ignat', status: "Hello, i`m speaker of fly powers", location: {country: 'Ukraine', city: 'Zp'} },
+        //         { id: 3, followed: true, fullName: 'Sveta', status: "Hello, i studied at the technicum", location: {country: 'Ukraine', city: 'Dp'} },
+        //         { id: 4, followed: false, fullName: 'Nadya', status: "Hello, i`m very smart", location: {country: 'Ukraine', city: 'Kv'} }
+        //     ]
+        // )
     }
     return <div>
         {props.users.map((user) => {
@@ -27,12 +34,12 @@ const Users = (props) => {
                         </div>
                         <div className={styles.userData}>
                             <div className={styles.info}>
-                                <div>{user.fullName}</div>
-                                <div className={styles.status}>{user.status}</div>
+                                <div>{user.name}</div>
+                                <div className={styles.status}>{'user.status'}</div>
                             </div>
                             <div className={styles.place}>
-                                <div>{user.location.country}</div>
-                                <div>{user.location.city}</div>
+                                <div>{'user.location.country'}</div>
+                                <div>{'user.location.city'}</div>
                             </div>
                         </div>
                     </div>})}
