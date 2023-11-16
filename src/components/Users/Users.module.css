@@ -52,3 +52,20 @@
     top: center;
     right: 20px;
 }
+
+.selectedPage {
+    font-weight: 700;
+}
+
+.count {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.count span {
+    margin: 5px;
+}
+
+.count span:hover {
+    cursor: pointer;
+}
